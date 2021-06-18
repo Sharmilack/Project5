@@ -4,11 +4,19 @@ fetch('http://localhost:3000/api/cameras')
     	var output = '' ;
         data.forEach(camera => {
         output +=`    
-	         <li>
-	         	<h4>${camera.name}</h4>
-	         	<img src = ${camera.imageUrl}></img>
-	         	<h5>${camera.price} €</h5>
-	         	<h6>${camera.description}</h6>
+	        <li class="cameraList">
+		        <a href="product.html?id=${camera._id}">
+		         	<h2>${camera.name}</h2>
+		         	<img src = ${camera.imageUrl}></img>
+		         	<p>${camera.price/100} €</p>
+		         	<p>${camera.description}</p>
+		        </a>
+		        <div id ="lenses">
+		        	<p>Lenses<br>${camera.lenses}</p>
+		       	</div>
+		        <a href="product.html?id=${camera._id}">
+		         	<button class="button">Voir le produit</button>
+		        </a>
 	         </li>
 	         `;
       });

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet" media="all">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Panier</title>
+</head>
+<body>
+	<header class="nameandlogo">
+		<a href="index.html">
+			<h1><i class="fas fa-shopping-cart"></i>ORINOCO</h1>
+		</a>
+		<nav>
+			<ul>
+				<a href="index.html"><li>Acceuil</li></a>
+				<a href="contact.html"><li>Contactez-nous</li></a>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<ul id="headingCart"> 
+			<li>Produit</li>
+			<li>Prix</li>
+			<li>Quantité</li>
+		</ul>
+	</section>
+	<main id="mainContainerCart">
+	</main>
+	<section id ="total"></section>
+	<section id = "checkoutSection">
+		<a href="#checkoutform">
+			<button class ="button" id="checkoutButton" onclick="openForm()">Checkout</button>
+		</a>
+		<form id = "checkoutform" method ="post">
+			<div class="formHeading">
+			    <h1>Formulaire</h1>
+			    <p>Please fill in this form to checkout</p>
+			</div>
+		    <div class="formBody">
+			    <label for="firstname"><b>Prénom:</b></label>
+			    <input type="text" placeholder="Votre prénom..." name="firstname" id="firstname" required>
+
+			    <label for="lasttname"><b>Nom:</b></label>
+			    <input type="text" placeholder="Votre nom..." name="lastname" id="lastname" required>
+
+			    <label for="email">E-mail:</label>
+				<input type="email" placeholder="Votre e-mail..." id="email" name="email">
+
+			    <label for="address"><b>Address:</b></label>
+			    <input type="text" placeholder="Votre addresse..." name="address" id="address" required>
+
+			    <label for="potalcode"><b>Code Postale:</b></label>
+			    <input type="number" placeholder="Votre code postale..." name="postalcode" id="postalcode" required>
+
+			    <label for="city"><b>Ville:</b></label>
+			    <input type="text" placeholder="city" name="city" id="city" required>
+			    <button type="submit" value="submit" class= "button"id="submitbtn">Submit</button>
+		  </div>
+		</form>
+	</section>
+	<footer>
+		<p>Orinoco Companies,Paris,France</p>
+		<div id="logosfooter">
+			<i class="fab fa-facebook-messenger"></i>
+			<i class="fab fa-twitter"></i>
+			<i class="fab fa-instagram"></i>
+		</div>
+	</footer>
+	<script src="cart.js" type="text/javascript"></script>
+	<script src="https://kit.fontawesome.com/fb59ae922a.js" crossorigin="anonymous"></script>
+</body>
+</html>
