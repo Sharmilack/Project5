@@ -56,8 +56,8 @@ form.addEventListener('submit', e=>{
 	let order ={
     products: finalCart,
   	contact: {
-      lastName: document.getElementById("firstname").value,
-      firstName: document.getElementById("lastname").value,
+      lastName: document.getElementById("lastname").value,
+      firstName: document.getElementById("firstname").value,
       email: document.getElementById("email").value,
       address: document.getElementById("address").value,
       postalcode: document.getElementById("postalcode").value,
@@ -73,7 +73,7 @@ form.addEventListener('submit', e=>{
 	}).then(response=> {
 	  response.json().then(result=>{
 		  orderId = result.orderId;
-		  window.location.href="confirmation.html?orderId=" + orderId
+		  window.location.href="confirmation.html?orderId=" + orderId;
 	  	localStorage.setItem('cart', JSON.stringify([]));
 	  });
 	});
