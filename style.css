@@ -350,6 +350,11 @@ input:focus
 	display: flex;
 	flex-direction: column;
 }
+#total
+{
+	margin-bottom: 150px;
+	text-align: center;
+}
 @media (max-width: 1024px)
 {
 	main

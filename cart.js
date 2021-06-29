@@ -34,6 +34,7 @@ Promise.all(promises).then(camera => {
 		  document.getElementById("checkoutSection").style.visibility="visible";
 		  document.getElementById('mainContainerCart').innerHTML=output;
 		  document.getElementById('total').innerHTML="Total Price = " + totalPrice/100;
+		  sessionStorage.setItem('total', totalPrice/100);
 	});
 });
 
@@ -72,8 +73,8 @@ form.addEventListener('submit', e=>{
 	  body: JSON.stringify(order),
 	}).then(response=> {
 	  response.json().then(result=>{
-		  orderId = result.orderId;
-		  window.location.href="confirmation.html?orderId=" + orderId;
+		orderId = result.orderId;
+		window.location.href="confirmation.html?orderId=" + orderId;
 	  	localStorage.setItem('cart', JSON.stringify([]));
 	  });
 	});
