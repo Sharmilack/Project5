@@ -28,6 +28,7 @@ fetch('http://localhost:3000/api/cameras/' + productId)
     	addToCart.style.color ="#7cb9c4";
 	
 		cartItems = localStorage.getItem('cart');
+		console.log(cartItems);
 		if (cartItems == null){
 			cartItems = [];
 			cartItems.push(productId);
@@ -41,5 +42,6 @@ fetch('http://localhost:3000/api/cameras/' + productId)
 				alert('le produit est déja dans le panier!')
 			}
 		}
+		console.log(cartItems);
 		}); 
 	});

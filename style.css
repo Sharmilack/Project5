@@ -129,14 +129,14 @@ img:hover {
 	margin-top: 30px; 
 	margin-bottom: 30px;
 	border-radius: 25px;
-  background: linear-gradient(to right, #67b26b, #4ca2cb) !important;
-  border: none;
-  transition-duration: 0.4s;
-  color: #FFFFFF;
+	background: linear-gradient(to right, #67b26b, #4ca2cb) !important;
+	border: none;
+	transition-duration: 0.4s;
+	color: #FFFFFF;
  	padding: 14px 28px;
  	font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
+  	cursor: pointer;
+  	display: inline-block;
 }
 .button:hover
 {
@@ -283,7 +283,7 @@ footer p
 	text-align: center;
 	margin: 50px 0px 50px 0px;
 }
-#total
+#totalcart
 {
 	font-size: 20px;
 	font-family: "Nerko One";
@@ -339,7 +339,7 @@ input:focus
 {
 	text-align: center;
 	padding-top: 40px;
-	margin-top: 100 px;
+	margin-top: 100px;
 	margin-bottom: 100px;
 	height: 50px;
 	width: 80%;

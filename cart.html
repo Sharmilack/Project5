@@ -14,9 +14,9 @@
 			<h1><i class="fas fa-shopping-cart"></i>ORINOCO</h1>
 		</a>
 		<nav>
-			<ul>
-				<a href="index.html"><li>Acceuil</li></a>
-				<a href="contact.html"><li>Contactez-nous</li></a>
+			<ul id="menu">
+				<li><a href="index.html">Acceuil</a></li>
+				<li><a href="contact.html">Contactez-nous</a></li>
 			</ul>
 		</nav>
 	</header>
@@ -29,21 +29,19 @@
 	</section>
 	<main id="mainContainerCart">
 	</main>
-	<section id ="total"></section>
+	<section id ="totalcart"></section>
 	<section id = "checkoutSection">
-		<a href="#checkoutform">
 			<button class ="button" id="checkoutButton" onclick="openForm()">Checkout</button>
-		</a>
 		<form id = "checkoutform" method ="post">
 			<div class="formHeading">
-			    <h1>Formulaire</h1>
+			    <h2>Formulaire</h2>
 			    <p>S'il vous plaît, veuillez remplir le formulaire.</p>
 			</div>
 		    <div class="formBody">
 			    <label for="firstname"><b>Prénom:</b></label>
 			    <input type="text" placeholder="Votre prénom..." name="firstname" id="firstname" required>
 
-			    <label for="lasttname"><b>Nom:</b></label>
+			    <label for="lastname"><b>Nom:</b></label>
 			    <input type="text" placeholder="Votre nom..." name="lastname" id="lastname" required>
 
 			    <label for="email">E-mail:</label>
@@ -52,12 +50,12 @@
 			    <label for="address"><b>Address:</b></label>
 			    <input type="text" placeholder="Votre addresse..." name="address" id="address" required>
 
-			    <label for="potalcode"><b>Code Postale:</b></label>
+			    <label for="postalcode"><b>Code Postale:</b></label>
 			    <input maxlength="5" minlength="5" type="text" placeholder="Votre code postale..." name="postalcode" id="postalcode" required>
 
 			    <label for="city"><b>Ville:</b></label>
 			    <input type="text" placeholder="Votre ville...." name="city" id="city" required>
-			    <button type="submit" value="submit" class= "button"id="submitbtn">Submit</button>
+			    <button type="submit" value="submit" class= "button" id="submitbtn">Submit</button>
 		  </div>
 		</form>
 	</section>

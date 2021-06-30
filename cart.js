@@ -29,11 +29,10 @@ Promise.all(promises).then(camera => {
 				  <li><p>1</p></li>
 			  </ul>
 		  `;
-
 		  document.getElementById("headingCart").style.visibility="visible";
 		  document.getElementById("checkoutSection").style.visibility="visible";
 		  document.getElementById('mainContainerCart').innerHTML=output;
-		  document.getElementById('total').innerHTML="Total Price = " + totalPrice/100;
+		  document.getElementById('totalcart').innerHTML="Total Price = " + totalPrice/100;
 		  sessionStorage.setItem('total', totalPrice/100);
 	});
 });
