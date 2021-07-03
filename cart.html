@@ -32,29 +32,29 @@
 	<section id ="totalcart"></section>
 	<section id = "checkoutSection">
 			<button class ="button" id="checkoutButton" onclick="openForm()">Checkout</button>
-		<form id = "checkoutform" method ="post">
+		<form id = "checkoutform" method ="post" onclick="submit">
 			<div class="formHeading">
 			    <h2>Formulaire</h2>
 			    <p>S'il vous plaît, veuillez remplir le formulaire.</p>
 			</div>
 		    <div class="formBody">
 			    <label for="firstname"><b>Prénom:</b></label>
-			    <input type="text" placeholder="Votre prénom..." name="firstname" id="firstname" required>
+			    <input type="text" placeholder="Votre prénom..." name="firstname" id="firstname" pattern="[A-Za-zÀ-ž]{2,20}" required>
 
 			    <label for="lastname"><b>Nom:</b></label>
-			    <input type="text" placeholder="Votre nom..." name="lastname" id="lastname" required>
+			    <input type="text" placeholder="Votre nom..." name="lastname" id="lastname" pattern="[A-Za-zÀ-ž]{2,20}" required>
 
 			    <label for="email">E-mail:</label>
 				<input type="email" placeholder="Votre e-mail..." id="email" name="email">
 
 			    <label for="address"><b>Address:</b></label>
-			    <input type="text" placeholder="Votre addresse..." name="address" id="address" required>
+			    <input type="text" placeholder="Votre addresse..." name="address" id="address" pattern="[A-Za-zÀ-ž0-9\s]{2,}" required>
 
 			    <label for="postalcode"><b>Code Postale:</b></label>
-			    <input maxlength="5" minlength="5" type="text" placeholder="Votre code postale..." name="postalcode" id="postalcode" required>
+			    <input type="text" placeholder="Votre code postale..." name="postalcode" pattern="[0-9]{5,5}" id="postalcode" required>
 
 			    <label for="city"><b>Ville:</b></label>
-			    <input type="text" placeholder="Votre ville...." name="city" id="city" required>
+			    <input type="text" placeholder="Votre ville...." name="city" id="city" pattern="[A-Za-zÀ-ž]{2,}" required>
 			    <button type="submit" value="submit" class= "button" id="submitbtn">Submit</button>
 		  </div>
 		</form>
