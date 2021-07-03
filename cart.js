@@ -26,13 +26,14 @@ Promise.all(promises).then(camera => {
 				    </div>
 			    </li>
 			    <li><p>${camera.price/100} €</p></li>
-				  <li><p>1</p></li>
+				<li><p>${camera.quantity}</p></li>
 			  </ul>
 		  `;
 		  document.getElementById("headingCart").style.visibility="visible";
 		  document.getElementById("checkoutSection").style.visibility="visible";
 		  document.getElementById('mainContainerCart').innerHTML=output;
 		  document.getElementById('totalcart').innerHTML="Total Price = " + totalPrice/100;
+
 		  sessionStorage.setItem('total', totalPrice/100);
 	});
 });
@@ -53,19 +54,18 @@ var form = document.getElementById('checkoutform');
 
 form.addEventListener('submit', e=>{
 	e.preventDefault();
+	
 	let order ={
     products: finalCart,
   	contact: {
-      lastName: document.getElementById("lastname").value,
       firstName: document.getElementById("firstname").value,
+      lastName: document.getElementById("lastname").value,
       email: document.getElementById("email").value,
       address: document.getElementById("address").value,
       postalcode: document.getElementById("postalcode").value,
       city: document.getElementById("city").value,
     },
   };
-
-
 	fetch("http://localhost:3000/api/cameras/order", {
 	  method: 'POST',
 	  headers: headers,
