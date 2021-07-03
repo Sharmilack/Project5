@@ -60,7 +60,7 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     let order = {
-        products: finalCart,
+        products: finalCart.map((item) => item.id),
         contact: {
             firstName: document.getElementById("firstname").value,
             lastName: document.getElementById("lastname").value,
@@ -77,8 +77,10 @@ form.addEventListener("submit", (e) => {
     }).then((response) => {
         response.json().then((result) => {
             orderId = result.orderId;
-            window.location.href = "confirmation.html?orderId=" + orderId;
-            localStorage.setItem("cart", JSON.stringify([]));
+            if (orderId) {
+                window.location.href = "confirmation.html?orderId=" + orderId;
+                localStorage.setItem("cart", JSON.stringify([]));
+            }
         });
     });
 });
