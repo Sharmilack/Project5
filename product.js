@@ -29,33 +29,42 @@ fetch('http://localhost:3000/api/cameras/' + productId)
     document.getElementById('addToCart').addEventListener('click', ()=>{
     	addToCart.style.color ="#7cb9c4";
  
-		cartItems = localStorage.getItem('cart');
-			let items = {id:camera._id, image:camera.imageUrl, name:camera.name, prices:camera.price/100, quantity:1};
-			if (cartItems === null){
-				cartItems = [];
-				cartItems.push(items);
-				localStorage.setItem('cart', JSON.stringify(cartItems));
-				console.log(cartItems);
-			} else {
-				cartItems=JSON.parse(cartItems);
-				cartItems.forEach (item => {
-					if (item.id === camera._id){
-						items.quantity = item.quantity += 1;
-						items.prices = item.prices*item.quantity;				
-				}else{
-				cartItems.push(items);
-				}
-			localStorage.setItem('cart', JSON.stringify(cartItems));
+		            let cartItems = localStorage.getItem("cart");
+            // Si le panier n'a jamais existé ou est vide on l'initialise sinon on le parse
+            cartItems =
+                cartItems === null || cartItems == ""
+                    ? []
+                    : JSON.parse(cartItems);
 
+            // On cherche les items dans le panier qui ont le même id
+            let existingItems = cartItems.filter(
+                (item) => item.id == camera._id
+            );
 
-		/*else {
-			cartItems = JSON.parse(cartItems);
-			if (!cartItems.includes(productId)){
-				cartItems.push(productId);
-				localStorage.setItem('cart', JSON.stringify(cartItems));
-			}
-		}*/
-	});
-};
-});
-});
+            // S'il y en au moins 1, on incrémente juste la quantité de celui ci
+            if (existingItems.length >= 1) {
+                existingItems[0].quantity += 1;
+                existingItems[0].prices += camera.price/100;
+
+                // S'il y en plus que 1, il y a problème, on clean les autres items du tableau
+                if (existingItems.length > 1) {
+                    cartItems = cartItems.filter(
+                        (item) => item.id != camera._id
+                    );
+                    cartItems.push(existingItems[0]);
+                }
+            }
+            // Sinon on ajoute un nouvel item
+            else {
+                cartItems.push({
+                    id: camera._id,
+                    image: camera.imageUrl,
+                    name: camera.name,
+                    prices: camera.price / 100,
+                    quantity: 1,
+                });
+            }
+            // Puis on serialise le tableau
+            localStorage.setItem("cart", JSON.stringify(cartItems));
+        });
+    });

@@ -1,5 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const orderId = urlParams.get('orderId');
+console.log(orderId);
 
 const total = sessionStorage.getItem("total");
 
