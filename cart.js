@@ -20,7 +20,7 @@ var output = '';
 var totalPrice = 0;
 Promise.all(promises).then((camera) => {
     camera.forEach((camera) => {
-        totalPrice += camera.price;
+        totalPrice += camera.prices;
         output += `
 			  <ul>   
 			    <li>
@@ -29,7 +29,7 @@ Promise.all(promises).then((camera) => {
 				      <p>${camera.name}</p>
 				    </div>
 			    </li>
-			     <li><p>${camera.price / 100} €</p></li>
+			     <li><p>${camera.prices} €</p></li>
 				<li><p>${camera.quantity}</p></li>
 			  </ul>
 		  `;
@@ -37,8 +37,8 @@ Promise.all(promises).then((camera) => {
         document.getElementById("checkoutSection").style.visibility = "visible";
         document.getElementById("mainContainerCart").innerHTML = output;
         document.getElementById("totalcart").innerHTML =
-        "Total Price = " + totalPrice / 100;
-        sessionStorage.setItem("total", totalPrice / 100);
+        "Total Price = " + totalPrice;
+        sessionStorage.setItem("total", totalPrice);
     });
 	});
 
