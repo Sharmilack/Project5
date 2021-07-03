@@ -77,6 +77,7 @@ form.addEventListener("submit", (e) => {
     }).then(response=> {
 	  	response.json().then(result=>{
 		orderId = result.orderId;
+		sessionStorage.setItem("orderId", JSON.stringify(result.orderId))
 		window.location.href="confirmation.html?orderId=" + orderId;
 	  	localStorage.setItem('cart', JSON.stringify([]));
 	  });
