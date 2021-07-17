@@ -1,9 +1,4 @@
 finalCart = localStorage.getItem("cart");
-
-if (finalCart == null) {
-    finalCart = [];
-} else {
-    finalCart = JSON.parse(finalCart);
 }
 
 const promises = finalCart.map((item) => {
@@ -18,8 +13,7 @@ const promises = finalCart.map((item) => {
 var output = "";
 var totalPrice = 0;
 Promise.all(promises).then((camera) => {
-    camera.forEach((camera) => {
-        totalPrice += camera.price;
+    camera.forEach((camera) => 
         output += `
 			  <ul>   
 			    <li>
@@ -28,40 +22,13 @@ Promise.all(promises).then((camera) => {
 				      <p>${camera.name}</p>
 				    </div>
 			    </li>
-			    <li><p>${camera.price / 100} €</p></li>
-				<li><p>${camera.quantity}</p></li>
-			  </ul>
-		  `;
-        document.getElementById("headingCart").style.visibility = "visible";
-        document.getElementById("checkoutSection").style.visibility = "visible";
-        document.getElementById("mainContainerCart").innerHTML = output;
-        document.getElementById("totalcart").innerHTML =
-            "Total Price = " + totalPrice / 100;
-
-        sessionStorage.setItem("total", totalPrice / 100);
-    });
-});
-
-function openForm() {
-    document.getElementById("checkoutform").style.display = "block";
-}
-
-function closeForm() {
-    document.getElementById("checkoutform").style.display = "none";
-}
-
-let headers = {
-    "Content-Type": "application/json",
 };
 
 var form = document.getElementById("checkoutform");
 
 form.addEventListener("submit", (e) => {
     e.preventDefault();
-
-    let order = {
-        products: finalCart.map((item) => item.id),
-        contact: {
+    contact: {
             firstName: document.getElementById("firstname").value,
             lastName: document.getElementById("lastname").value,
             email: document.getElementById("email").value,
@@ -74,13 +41,3 @@ form.addEventListener("submit", (e) => {
         method: "POST",
         headers: headers,
         body: JSON.stringify(order),
-    }).then((response) => {
-        response.json().then((result) => {
-            orderId = result.orderId;
-            if (orderId) {
-                window.location.href = "confirmation.html?orderId=" + orderId;
-                localStorage.setItem("cart", JSON.stringify([]));
-            }
-        });
-    });
-});
